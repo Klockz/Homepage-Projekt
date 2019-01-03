@@ -62,7 +62,7 @@ gulp.task('scripts', function() {
       .pipe(gulp.dest('app/js'));
 });
 
-gulp.task('serve', gulp.parallel('fileinclude', 'scss', 'scripts'), function() {
+gulp.task('serve', gulp.series(gulp.parallel('fileinclude','scss', 'scripts'), function() {
   browserSync.init({
     proxy: 'localhost:8080',
     open: false,
@@ -73,7 +73,7 @@ gulp.task('serve', gulp.parallel('fileinclude', 'scss', 'scripts'), function() {
   gulp.watch(["app/*.php"]).on('change', browserSync.reload);
   gulp.watch(['app/js/{,/**}','!app/js/main.min.js'], ['scripts']);
   gulp.watch(['app/js/main.min.js']).on('change', browserSync.reload);
-});
+}));
 
 gulp.task('default', gulp.series('serve'));
 
