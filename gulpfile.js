@@ -62,7 +62,7 @@ gulp.task('scripts', function() {
       .pipe(gulp.dest('app/js'));
 });
 
-gulp.task('serve', gulp.series('fileinclude', 'scss', 'scripts'), function() {
+gulp.task('serve', gulp.parallel('fileinclude', 'scss', 'scripts'), function() {
   browserSync.init({
     proxy: 'localhost:8080',
     open: false,
