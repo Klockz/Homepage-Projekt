@@ -16,23 +16,17 @@
     <div class="navitems">
       <ul class="nav navbar-nav">
         <li class="dropdown nav-item">
-            <a data-toggle="dropdown" class="dropdown-toggle nav-link <? echo $active_root == 'missions' ? 'active' : ''; ?> clickable" href="/missions.php">Missions<b class="caret"></b></a>
+            <a data-toggle="dropdown" class="dropdown-toggle nav-link <? echo $active_root == 'missions' ? 'active' : ''; ?> clickable" href="/missions.php">Forside<b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li class="divider">Side missions</li>
-              <li><a class="dropdown-item <? echo $active_leaf == 'smugglers' ? 'active' : ''; ?>" href="/missions/smugglers.php">Smuggler's Run</a></li>
-              <li><a class="dropdown-item <? echo $active_leaf == 'powder' ? 'active' : ''; ?>" href="/missions/powder.php">Black Powder</a></li>
-              <li><a class="dropdown-item <? echo $active_leaf == 'ramparts' ? 'active' : ''; ?>" href="/missions/ramparts.php">Man the Ramparts</a></li>
-              <li><a class="dropdown-item <? echo $active_leaf == 'waterfront' ? 'active' : ''; ?>" href="/missions/waterfront.php">Waterfront</a></li>
-              <li><a class="dropdown-item <? echo $active_leaf == 'well' ? 'active' : ''; ?>" href="/missions/well.php">Well Watch</a></li>
-              <li><a class="dropdown-item <? echo $active_leaf == 'wheat' ? 'active' : ''; ?>" href="/missions/wheat.php">Wheat and Chaff</a></li>
-              <li class="divider">Main missions</li>
-              <li><a class="dropdown-item <? echo $active_leaf == 'magnus' ? 'active' : ''; ?>" href="/missions/magnus.php">The Horn of Magnus</a></li>
-              <li><a class="dropdown-item <? echo $active_leaf == 'supply' ? 'active' : ''; ?>" href="/missions/supply.php">Supply and Demand</a></li>
-              <li><a class="dropdown-item <? echo $active_leaf == 'wizard' ? 'active' : ''; ?>" href="/missions/wizard.php">The Wizard's Tower</a></li>
-              <li><a class="dropdown-item <? echo $active_leaf == 'engines' ? 'active' : ''; ?>" href="/missions/engines.php">Engines of War</a></li>
-              <li><a class="dropdown-item <? echo $active_leaf == 'gardens' ? 'active' : ''; ?>" href="/missions/gardens.php">Garden of Morr</a></li>
-              <li><a class="dropdown-item <? echo $active_leaf == 'below' ? 'active' : ''; ?>" href="/missions/below.php">The Enemy Below</a></li>
-              <li><a class="dropdown-item <? echo $active_leaf == 'whiterat' ? 'active' : ''; ?>" href="/missions/whiterat.php">The White Rat</a></li>
+              <li class="divider">Omkring Os</li>
+              <li><a class="dropdown-item <? echo $active_leaf == 'smugglers' ? 'active' : ''; ?>" href="/missions/smugglers.php">Filosofi</a></li>
+              <li><a class="dropdown-item <? echo $active_leaf == 'powder' ? 'active' : ''; ?>" href="/missions/powder.php">Hvem er vi?</a></li>
+              <li><a class="dropdown-item <? echo $active_leaf == 'ramparts' ? 'active' : ''; ?>" href="/missions/ramparts.php">Kontakt os</a></li>
+              <li class="divider">Ydelser</li>
+              <li><a class="dropdown-item <? echo $active_leaf == 'magnus' ? 'active' : ''; ?>" href="/missions/magnus.php">Tag vask</a></li>
+              <li><a class="dropdown-item <? echo $active_leaf == 'supply' ? 'active' : ''; ?>" href="/missions/supply.php">Flise vask</a></li>
+              <li><a class="dropdown-item <? echo $active_leaf == 'wizard' ? 'active' : ''; ?>" href="/missions/wizard.php">Rengøring</a></li>
+              <li><a class="dropdown-item <? echo $active_leaf == 'engines' ? 'active' : ''; ?>" href="/missions/engines.php">Vinduespolering</a></li>
             </ul>
         </li>
         <li class="dropdown nav-item">

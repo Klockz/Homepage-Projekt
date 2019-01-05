@@ -12,6 +12,12 @@ var gulp                = require('gulp'),
       browserify      = require('browserify'),
       runSequence = require('run-sequence'),
       source           = require('vinyl-source-stream');
+
+var styleWatch  = 'app/scss/**';
+var htmlWatch  = 'app/html/**';
+var jsWatch  = 'app/js/**'/*,'!app/js/main.min.js'*/;
+var mainjsWatch  = 'app/js/main.min.js';
+var phpWatch = 'app/*.php';
                       
 var notifyError = function(err, lang) {
   console.log("------------------ error ------------------");
@@ -24,7 +30,7 @@ var notifyError = function(err, lang) {
   })(err);
 };
 
-gulp.task('fileinclude', function() {
+function fileinclude(done) {
   gulp.src(['app/html/pages/**/*.php'])
     .pipe(fileinclude({
       prefix: '<!--@@',
@@ -32,9 +38,10 @@ gulp.task('fileinclude', function() {
       basepath: './app/html/'
     }))
     .pipe(gulp.dest('app/'));
-});
+    done();
+};
 
-gulp.task('scss', function() {
+function scss(src) {
   return gulp.src("app/scss/*.scss")
     .pipe(plumber(function(){
        this.emit('end');
@@ -50,9 +57,9 @@ gulp.task('scss', function() {
     .pipe(gulp.dest("app/"))
     .pipe(browserSync.stream())
     .pipe(plumber.stop());
-});
+};
 
-gulp.task('scripts', function() {
+function scripts(done) {
   return browserify('./app/js/main.js', { debug: true })
       .bundle()
       .on("error", function(err) {
@@ -60,46 +67,70 @@ gulp.task('scripts', function() {
       })
       .pipe(source('main.min.js'))
       .pipe(gulp.dest('app/js'));
-});
+      done();
+};
 
-gulp.task('serve', gulp.series(gulp.parallel('fileinclude','scss', 'scripts'), function() {
+function serve(done) {
   browserSync.init({
-    proxy: 'localhost:8080',
+    proxy: 'Rensfyn:8080',
     open: false,
     ghostMode: false
   });
-  gulp.watch("app/scss{,/**}", ['scss']);
-  gulp.watch(["app/html{,/**}"], ['fileinclude']);
+}
+
+  function watchfiles() {
+    gulp.watch(styleWatch, scss);
+    gulp.watch(htmlWatch, fileinclude);
+    gulp.watch(phpWatch, browserSync.reload);
+    gulp.watch(jsWatch, scripts);
+    gulp.watch(mainjsWatch, browserSync.reload);
+  }
+
+/*  gulp.watch("app/scss{,/**}", gulp.task('scss'));
+  gulp.watch(["app/html{,/**}"], gulp.task('fileinclude'));
   gulp.watch(["app/*.php"]).on('change', browserSync.reload);
   gulp.watch(['app/js/{,/**}','!app/js/main.min.js'], ['scripts']);
   gulp.watch(['app/js/main.min.js']).on('change', browserSync.reload);
-}));
+  done();
+};*/
 
-gulp.task('default', gulp.series('serve'));
+gulp.task('serve', serve);
+
+gulp.task('scripts', scripts);
+
+gulp.task('scss', scss);
+
+gulp.task('fileinclude', fileinclude);
+
+gulp.task('default', gulp.series(serve, fileinclude, scripts, scss, watchfiles));
 
 /** DIST TASKS **/
-gulp.task('dist', function(callback) {
-  runSequence('clean-dist', 'fileinclude', 'scss-dist', 'copy-to-dist', 'copy-images', 'copy-js');
-});
+function dist(callback) {
+  gulp.series(cleandist, fileinclude, scssdist, copytodist, copyimages, copyjs);
+}
 
-gulp.task('clean-dist', function(){
+function cleandist(done){
   del.sync(['dist/**/*', '!dist', '!dist/sftp-config.json']);
-});
-gulp.task('copy-to-dist', function(){
+  done();
+}
+
+function copytodist(){
   return gulp.src(['app{,/**}', '!app/scss{,/**}', '!app/img{,/**}', '!app/js{,/**}', '!app/html{,/**}'], {base: "./app"})
     .pipe(gulp.dest('dist/'));
-});
-gulp.task('copy-images', function () {
+}
+
+function copyimages () {
   return gulp.src(['app/img/**/*'], {base: "./app"})
     .pipe(imagemin())
     .pipe(gulp.dest('dist/'));
-});
-gulp.task('copy-js', function () {
-  return gulp.src(['app/js/main.min.js', 'app/js/libs/**'], {base: "./app"})
-    .pipe(gulp.dest('dist/'));
-});
+}
 
-gulp.task('scss-dist', function() {
+function copyjs () {
+  return gulp.src([mainjsWatch, 'app/js/libs/**'], {base: "./app"})
+    .pipe(gulp.dest('dist/'));
+}
+
+function scssdist() {
   return gulp.src("app/scss/*.scss")
     .pipe(scss({
       errLogToConsole: false
@@ -113,4 +144,4 @@ gulp.task('scss-dist', function() {
     }))
     .pipe(gulp.dest("app/"))
     .pipe(browserSync.stream());
-});
+  }
