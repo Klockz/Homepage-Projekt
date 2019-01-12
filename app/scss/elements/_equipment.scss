@@ -1,0 +1,194 @@
+.scrollspy {
+  width: 900px;
+  margin-top: 25px;
+  position: fixed;
+  
+  a {
+    color: $skullwhite;
+  }
+}
+
+.class_info {
+  .table {
+    thead {
+      th {
+        text-align: center;
+
+        &:first-child {
+          text-align: left;
+        }
+      }
+    }
+
+    td {
+      text-align: center;
+
+      img {
+        margin-right: 10px;
+      }
+
+      &:first-child {
+        text-align: left;
+        // min-width: 310px;
+      }
+    }
+
+    &.trinkets td > img,
+    &.hats td > img {
+      width: 50px;
+      height: 50px;
+    }
+
+    &.trinkets {
+      th,
+      td {
+        text-align: left;
+      }
+
+      .traitname {
+        color: $chalicegold;
+      }
+    }
+
+    &.weaponstrait {
+      th,
+      td {
+        text-align: left;
+        position: relative;
+      }
+      
+      .btn {
+        background-color: lighten($chainmail, 10%);
+        padding: 2px 4px;
+        margin-right: 5px;
+
+        @include media-breakpoint-down(lg) {
+          width: 100%;
+          display: block;
+          min-width: 200px;
+          max-width: 200px;
+          margin-top: 5px;
+          margin-right: 0;
+        }
+
+        &:hover {
+          background-color: darken($bloodred, 10%);
+        }
+
+        &.active {
+          background-color: darken($bloodred, 5%);
+        }
+
+        &:focus,
+        &:active,
+        &.active {
+          outline: none;
+        }
+
+        &.no-weaps {
+          background-color: darken($chainmail, 5%);
+          cursor: default;
+        }
+      }
+
+      .possible-on {
+        min-width: 225px;
+      }
+
+      .expander {
+        display: none;
+        background-color: darken($bloodred, 5%);
+        padding: 10px;
+      }
+    }
+
+    &.hats {
+      @include media-breakpoint-up(md) {
+        display: table;
+      }
+
+      thead tr {
+        cursor: default;
+
+        &:hover {
+          background-color: inherit;
+        }
+
+        td:last-child {
+          padding: 0;
+        }
+      }
+
+      tr {
+        cursor: pointer;
+  
+        &.extra-info {
+          padding: 0;
+          cursor: default;
+
+          &:hover {
+            background-color: inherit;
+          }
+
+          td {
+            padding: 0 !important;
+
+            div {
+              color: $crematewhite;
+              line-height: 1.4;
+              // font-style: italic;
+              display: none;
+              padding: 25px 50px;
+
+              p {
+                padding: 10px;
+                border: 2px solid $chalicegold;
+              }
+
+              img {
+                border: 2px solid $chainmail;
+              }
+            }
+          }
+        }
+
+        &:hover {
+          background-color: darken($chainmail, 5%);
+        }
+
+        &.expanded td:last-child {
+          transform: rotate(180deg);
+        }
+
+        td:last-child {
+          color: lighten($chainmail, 20%);
+          transition: 0.5s transform cubic-bezier(0.68, -0.55, 0.27, 1.55);
+          max-width: 15px;
+          padding: 2px;
+          line-height: 1;
+        }
+      }
+    }
+  }
+
+  .blueprint-item {
+    display: none;
+  }
+}
+
+.dice-table {
+  tr td:first-child {
+    padding: 5px;
+    max-width: 23px;
+
+    img {
+      width: 35px;
+    }
+  }
+}
+
+.probability {
+  h5 {
+    color: $bloodred;
+  }
+}

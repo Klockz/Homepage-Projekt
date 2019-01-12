@@ -1,0 +1,52 @@
+.sendinfo {
+  background-color: $anvilblack;
+  background-clip: padding-box;
+  max-width: 55rem;
+  z-index: 2;
+  position: relative;
+  padding: 5px 50px;
+
+  border-width: 50px;
+  border-top-width: 175px;
+  border-image: url('img/border_2.png') 30% 7% 8% 7% repeat;
+  margin-top: -200px;
+
+  @include media-breakpoint-down(lg) {
+    margin-top: 0;
+    border: 0px solid black;
+    padding: 5px 20px;
+  }
+
+  h2 {
+    text-transform: uppercase;
+  }
+}
+
+form {
+  margin-top: 20px;
+}
+
+.sweet-alert.swal--custom {
+  background-color: #333;
+  border-image: url('img/border.png') 4% 4% 4% 4% repeat;
+  background-clip: padding-box;
+  border-width: 10px;
+  padding: 10px;
+
+  h2 {
+    color: $skullwhite;
+  }
+
+  p {
+    color: darken($skullwhite, 4%);
+  }
+
+  .spinner-icon {
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+  }
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

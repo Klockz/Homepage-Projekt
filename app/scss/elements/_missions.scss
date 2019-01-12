@@ -1,0 +1,79 @@
+.missions {
+  font-size: 16px;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 13px;  
+  }
+
+  .card {
+    border: 0px solid black;
+    border-radius: 1.3rem;
+    max-height: 200px;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    box-shadow: 3px 5px 18px -4px $lookingglassblack;
+
+    &:hover {
+      .card-img-overlay {
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    &:active {
+      h2 {
+        color: $bloodred;
+      }
+    }
+
+    h2 {
+      top: 50%;
+      left: 0;
+      right: 0;
+      font-weight: 200;
+      position: absolute;
+      transform: translateY(-50%);
+      margin: auto;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 5px $lookingglassblack;
+    }
+  }
+
+  .card-img {
+    width: 100%;
+  }
+
+  .card-img-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .topimg {
+    margin-top: 20px;
+    position: relative;
+
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+
+    a {
+      display: block;
+      background-color: transparent;
+      position: absolute;
+      width: 4rem;
+      height: 4rem;
+
+      &.disabled {
+        cursor: default;
+      }
+    }
+
+    img {
+      max-width: 100%;  
+    }
+  }
+}
+
+.mission_info {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}

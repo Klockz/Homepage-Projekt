@@ -6,7 +6,7 @@
 	<title>RensFyn</title>
 	<meta name="description" content="Blablabla Info omkring hvad virksomheden laver">
 	
-	<meta name="" type="" href="/favicon.ico">
+	<meta name="" type="" href="/favicon.gif">
 	<!-- Place Favicon in Root directory -->
 
 	<link rel="stylesheet" type="text/css" href="">

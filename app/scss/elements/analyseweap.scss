@@ -1,0 +1,38 @@
+.analyseweap {
+  form {
+    margin-top: 0;
+  }
+
+  .statusicon {
+    display: none;
+
+    img {
+      max-width: 50px;
+      max-height: 50px;
+    }
+
+    .spinner-icon {
+      -webkit-animation:spin 4s linear infinite;
+      -moz-animation:spin 4s linear infinite;
+      animation:spin 4s linear infinite;
+    }
+  }
+
+  .additionalinfo {
+    display: none;
+  }
+
+  button.reset-btn {
+    margin-left: 20px;
+    background-color: lighten($chainmail, 10%);
+
+    &:hover {
+      background-color: $chaosblack;  
+    }
+
+    &.disabled,
+    &.disabled:hover {
+      background-color: $chainmail;
+    }
+  }
+}

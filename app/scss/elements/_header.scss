@@ -1,0 +1,211 @@
+body {
+  padding-top: 70px;
+}
+
+.topnav {
+  background-color: $lookingglassblack;
+  height: 64px;
+
+  @include media-breakpoint-down(md) {
+    padding: 8px 2px;
+    
+    .container {
+      padding: 0;
+      margin: 0;
+      max-width: inherit;
+    }    
+  }
+  
+
+  @include media-breakpoint-down(sm) {
+    background-color: $chaosblack;
+    height: 50px;
+    padding: 0;
+
+    &.expanded .container {
+      max-height: 810px;
+    }
+
+    .container {
+      max-height: 50px;
+      transition: 0.4s max-height ease-in;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .navbar-nav {
+      background-color: $chaosblack;
+      margin-top: 50px;
+      border-top: 1px solid $chainmail;
+
+      &.pull-right {
+        margin-top: 0;
+        float: none !important;
+      }
+
+      .nav-item {
+        margin-left: 0;
+        float: none;
+        border-bottom: 1px solid $chainmail;
+
+        &:hover,
+        &:active {
+          background-color: darken($chainmail, 6%);
+        }
+
+        .btn {
+          background-color: inherit;
+          margin: 0;
+          text-align: left;
+          width: 100%;
+          padding: 15px;
+        }
+
+        .expandedDropdown.dropdown-menu {
+          background-color: $chainmail;
+          float: none;
+          display: block;
+          position: relative;
+          width: 100%;
+
+          .divider {
+            padding-left: 10px;
+            border-top: 1px solid darken($chalicegold, 10%);
+            border-bottom: 1px solid darken($chalicegold, 10%);
+          }
+
+          .dropdown-item {
+            color: $skullwhite;
+
+            &:active,
+            &:hover,
+            &.active {
+              background-color: lighten($chainmail, 10%);
+              color: $bloodred;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .nav-expand {
+    display: none;
+
+    @include media-breakpoint-down(sm) { 
+      display: block;
+      float: left;
+    }
+  }
+
+  .logo {
+    height: 54px;
+    width: 131px;
+    background: url("img/Logo_rensfyn.png") center top no-repeat;
+
+    &:hover {
+      background-position: center bottom;
+    }
+
+    @include media-breakpoint-down(sm) {
+      background-size: 75%;
+      float: right;
+      height: 40px;
+      margin-top: 4px;
+    }
+  }
+
+  .nav-link {
+    color: $crematewhite;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 15px;
+    border-bottom: 2px transparent;
+
+    @include media-breakpoint-down(md) {
+      padding: 15px 2px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      padding: 15px;
+    }
+
+    &:hover {
+      border-bottom: 2px solid $bloodred;
+      background: transparent;
+    }
+
+    &.active {
+      color: $bloodred;
+      font-weight: 500;
+      background: transparent;
+    }
+
+    &.disabled {
+      color: darken($skullwhite, 30%);
+
+      &:hover {
+        border-bottom: 0px;
+        color: darken($skullwhite, 30%);
+      }
+    }
+  }
+
+  .btn {
+    margin-top: 6px;
+  }
+
+  .dropdown-toggle {
+    padding-bottom: 17px;
+    cursor: default;
+
+    &.clickable:hover {
+      color: $bloodred;  
+      cursor: pointer;
+    }
+    
+    &:hover {
+      border-bottom: 0px;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    .dropdown:hover .dropdown-menu {
+      display: block;
+      background: $chaosblack;
+      margin-top: 0;
+      width: 180px;
+      border-radius: 0;
+      padding: 0 0 5px;
+      border: 0;
+
+      .divider {
+        background-color: $lookingglassgray;
+        padding: 5px 0 5px 15px;
+        border-top: 1px solid darken($chalicegold, 20%);
+        border-bottom: 1px solid darken($chalicegold, 20%);
+      }
+     
+      a {
+        color: $crematewhite;
+        background: transparent;
+        
+        &:hover {
+          font-weight: bold;
+        }
+
+        &.active {
+         color: $bloodred;
+         font-weight: 600;
+        }
+
+        &.disabled {
+          color: darken($skullwhite, 30%);
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}
+
+

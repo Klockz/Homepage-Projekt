@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>RensFyn APS</title>
-	<meta name="description" content="Blablabla Info omkring hvad virksomheden laver">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>RensFyn APS</title>
+  <meta name="description" content="Blablabla Info omkring hvad virksomheden laver">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<link rel="icon" type="image/ico" href="/favicon.gif">
-	<!-- Place Favicon in Root directory -->
+  
+  <link rel="icon" type="image/ico" href="/favicon.gif">
+  <!-- Place Favicon in Root directory -->
 
-	<link rel="stylesheet" type="text/css" href="">
-	<link rel="stylesheet" href="/default.css">
+  <link rel="stylesheet" type="text/css" href="">
+  <link rel="stylesheet" href="/default.css">
 
 </head>
 <body>
 
+<?php 
+  $active = 'missions powder';
+?>
 
 <?
-	$active_tree = split('', $active);
-	$active_root = $active_tree[0];
+  $active_tree = split(' ', $active);
+  $active_root = $active_tree[0];
 
-	if(isset($active_tree[1])) {
-		$active_leaf = $active_tree[1];
-	}
+  if(isset($active_tree[1])) {
+    $active_leaf = $active_tree[1];  
+  }
 ?>
 
 <nav class="navbar topnav navbar-fixed-top">
@@ -71,7 +74,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="col-lg-8 col-lg-offset-2">
-       <h3 class="gold-bottom-border"></h3>
+       <h3 class="gold-bottom-border">Virksomheds Filosofi</h3>
        <!-- <figure class="figure">
          <img src="img/Banner.png" class="img-rounded">
        </figure> -->
@@ -85,11 +88,11 @@
   </div>
 </div>
 <footer class="bd-footer text-muted">
-	<div class="container">
-		<div>
-			<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		</div>
-	</div>
+  <div class="container">
+    <div>
+      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
 </footer>
     <script>window.jQuery || document.write('<script src="/js/libs/jquery-1.11.3.js"><\/script>')</script>
     <script src="/js/main.min.js"></script>

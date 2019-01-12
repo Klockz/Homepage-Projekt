@@ -15,7 +15,7 @@ var gulp                = require('gulp'),
 
 var styleWatch  = 'app/scss/**';
 var htmlWatch  = 'app/html/**';
-var jsWatch  = 'app/js/**'/*,'!app/js/main.min.js'*/;
+var jsWatch  = 'app/js/**';
 var mainjsWatch  = 'app/js/main.min.js';
 var phpWatch = 'app/*.php';
                       
@@ -82,7 +82,7 @@ function serve(done) {
     gulp.watch(styleWatch, scss);
     gulp.watch(htmlWatch, fileinclude);
     gulp.watch(phpWatch, browserSync.reload);
-    gulp.watch(jsWatch, scripts);
+    gulp.watch(jsWatch, {ignored: '!app/js/main.min.js'}, gulp.on('change', function(scripts){}));
     gulp.watch(mainjsWatch, browserSync.reload);
   }
 
@@ -102,7 +102,7 @@ gulp.task('scss', scss);
 
 gulp.task('fileinclude', fileinclude);
 
-gulp.task('default', gulp.series(serve, fileinclude, scripts, scss, watchfiles));
+gulp.task('default', gulp.parallel(fileinclude, scripts, scss, watchfiles, serve));
 
 /** DIST TASKS **/
 function dist(callback) {
