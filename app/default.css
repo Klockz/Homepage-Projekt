@@ -7639,7 +7639,7 @@ body {
       background-position: center bottom; }*/
     @media (max-width: 47.9em) {
       .topnav .logo {
-        background-size: 75%;
+        background-size: 30%;
         float: right;
         height: 40px;
         margin-top: 4px; } }
